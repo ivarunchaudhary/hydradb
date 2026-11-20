@@ -84,7 +84,7 @@ Rust 1.99+, a C/C++ toolchain, `libcypher-parser`, and SuiteSparse GraphBLAS.
 
 ```bash
 sudo apt-get install -y build-essential clang libclang-dev cmake pkg-config \
-  libcypher-parser-dev libgraphblas-dev curl git python3 python3-venv
+  libcypher-parser-dev libgraphblas-dev libffi-dev curl git python3 python3-venv
 ```
 
 On macOS: `brew install just cmake pkg-config llvm suite-sparse` and

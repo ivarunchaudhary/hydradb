@@ -141,7 +141,7 @@ Ubuntu or WSL:
 ```bash
 sudo apt-get update
 sudo apt-get install -y build-essential clang libclang-dev cmake pkg-config \
-  libcypher-parser-dev libgraphblas-dev python3-venv curl git
+  libcypher-parser-dev libgraphblas-dev libffi-dev python3-venv curl git
 cargo install just --locked
 ```
 
