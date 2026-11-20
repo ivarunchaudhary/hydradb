@@ -76,6 +76,10 @@ if ! "$PYTHON" -c 'import neo4j' >/dev/null 2>&1; then
   echo "python neo4j package is required for runtime smoke" >&2
   exit 2
 fi
+if ! "$PYTHON" -c 'import neo4j, sys; sys.exit(int(neo4j.__version__.split(".")[0]) < 6)' >/dev/null 2>&1; then
+  echo "python neo4j driver 6 or newer is required (5.x rejects the server); install 'neo4j>=6' on Python 3.10+" >&2
+  exit 2
+fi
 GRAPH_RUNTIME_SMOKE_TOKEN="$TOKEN" "$PYTHON" - <<'PY'
 import os
 from neo4j import GraphDatabase

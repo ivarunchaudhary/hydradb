@@ -203,11 +203,13 @@ protocol check is `scripts/runtime_smoke.sh`.
 
 ```bash
 source /tmp/sgk-env.sh
-python3 -m venv "$SGK_VENV" && "$SGK_VENV/bin/pip" install neo4j
+python3 -m venv "$SGK_VENV" && "$SGK_VENV/bin/pip" install 'neo4j>=6'
 ```
 
 Both Homebrew's and Debian's Python refuse a bare `pip install` under PEP 668,
-hence the virtualenv. Safe to re-run: `venv` reuses an existing directory and
+hence the virtualenv. Driver 6 needs Python 3.10+; on an older `python3`, pip
+stops with "No matching distribution found". Driver 5.x connects but rejects the
+server with `UnsupportedServerProduct`. Safe to re-run: `venv` reuses an existing directory and
 `pip` reports the package already satisfied.
 
 ### 6. Full runtime smoke
