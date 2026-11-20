@@ -528,7 +528,7 @@ impl QueryContext {
         self
     }
 
-    #[cfg(any(feature = "client-api", test))]
+    #[cfg(feature = "client-api")]
     #[cfg(feature = "opencypher")]
     pub(crate) fn with_refreshed_reader(mut self) -> Self {
         self.refreshed_reader = true;
